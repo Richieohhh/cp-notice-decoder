@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CPA Partner Program — Vidivici Tax Relief</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0F0E0C;
+      --paper: #F7F4EE;
+      --warm: #EDE8DF;
+      --gold: #B8892A;
+      --gold-light: #D4A84B;
+      --gold-pale: #F0E4C4;
+      --text: #2A2720;
+      --muted: #6B6456;
+      --border: #DDD8CE;
+      --radius: 8px;
+      --radius-lg: 16px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--text);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Nav */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 60px;
+      border-bottom: 1px solid var(--border);
+      background: var(--paper);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-brand span { color: var(--gold); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 10px 24px;
+      border-radius: var(--radius);
+      letter-spacing: 0.04em;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover { background: var(--gold-light); }
+
+    /* Hero */
+    .hero {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 100px 40px 80px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold-pale);
+      background: var(--gold-pale);
+      padding: 5px 16px;
+      border-radius: 20px;
+      margin-bottom: 32px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(40px, 6vw, 68px);
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero p {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto 40px;
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #fff;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 16px 36px;
+      border-radius: var(--radius);
+      letter-spacing: 0.03em;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 400;
+      padding: 16px 36px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      transition: border-color 0.2s;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* Divider */
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin: 0 auto 60px;
+    }
+
+    /* Problem section */
+    .problem {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 80px 40px;
+      text-align: center;
+    }
+
+    .problem-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .problem h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 500;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+
+    .problem h2 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .problem p {
+      font-size: 16px;
+      color: #9A9080;
+      line-height: 1.8;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #2A2520;
+      margin-top: 60px;
+    }
+
+    .stat {
+      background: var(--ink);
+      padding: 40px 30px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-weight: 500;
+      color: var(--gold-light);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: #6B6456;
+      letter-spacing: 0.05em;
+    }
+
+    /* How it works */
+    .section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 100px 40px;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 500;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .section-sub {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 60px;
+      line-height: 1.75;
+    }
+
+    /* Steps */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .step {
+      position: relative;
+    }
+
+    .step-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 64px;
+      font-weight: 700;
+      color: var(--gold-pale);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .step h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+
+    .step p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* Services */
+    .services-bg {
+      background: var(--warm);
+      padding: 100px 40px;
+    }
+
+    .services-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    .service-card {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+
+    .service-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .service-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--gold-pale);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 16px;
+    }
+
+    .service-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* Why partner */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .why-card {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+    }
+
+    .why-card.gold {
+      background: var(--ink);
+      border-color: var(--ink);
+    }
+
+    .why-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+
+    .why-card.gold h3 {
+      color: var(--gold-light);
+    }
+
+    .why-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .why-card.gold p {
+      color: #9A9080;
+    }
+
+    .why-card ul {
+      list-style: none;
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .why-card ul li {
+      font-size: 14px;
+      color: var(--muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+
+    .why-card.gold ul li {
+      color: #9A9080;
+    }
+
+    .check {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--gold-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+      font-size: 10px;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .why-card.gold .check {
+      background: rgba(184,137,42,0.2);
+      color: var(--gold-light);
+    }
+
+    /* Compensation */
+    .comp-section {
+      background: var(--ink);
+      padding: 100px 40px;
+      text-align: center;
+    }
+
+    .comp-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .comp-inner .section-eyebrow {
+      color: var(--gold-light);
+    }
+
+    .comp-inner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 500;
+      color: var(--paper);
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .comp-inner p {
+      font-size: 16px;
+      color: #9A9080;
+      margin-bottom: 48px;
+      line-height: 1.75;
+    }
+
+    .comp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .comp-card {
+      background: #1A1814;
+      border: 1px solid #2A2520;
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      text-align: left;
+    }
+
+    .comp-card-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .comp-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--paper);
+      margin-bottom: 12px;
+    }
+
+    .comp-card p {
+      font-size: 14px;
+      color: #6B6456;
+      margin-bottom: 0;
+      line-height: 1.65;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 100px 40px;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .cta-section h2 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .cta-section p {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 40px;
+      line-height: 1.75;
+    }
+
+    .cta-note {
+      margin-top: 16px;
+      font-size: 12px;
+      color: #B0A898;
+    }
+
+    /* Tool preview */
+    .tool-link {
+      background: var(--warm);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 48px;
+      text-decoration: none;
+      transition: border-color 0.2s;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .tool-link:hover { border-color: var(--gold); }
+
+    .tool-link-left h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .tool-link-left p {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .tool-link-arrow {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--muted);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    footer a { color: var(--gold); text-decoration: none; }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      nav { padding: 20px 24px; }
+      .stats { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .comp-grid { grid-template-columns: 1fr; }
+      .section { padding: 60px 24px; }
+      .services-bg { padding: 60px 24px; }
+      .comp-section { padding: 60px 24px; }
+      .cta-section { padding: 60px 24px; }
+      footer { padding: 24px; }
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="https://vidivicitaxrelief.com" class="nav-brand">Vidivici <span>Tax Relief</span></a>
+    <a href="https://calendly.com/vidivicitaxrelief" target="_blank" class="nav-cta">Schedule a Partner Call</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-badge">CPA Partner Program</div>
+    <h1>Your Clients Have IRS Problems.<br><em>We Solve Them.</em></h1>
+    <p>Partner with Vidivici Tax Relief and turn complex IRS cases into a new revenue stream — while keeping your client relationships intact.</p>
+    <div class="hero-actions">
+      <a href="https://calendly.com/vidivicitaxrelief" target="_blank" class="btn-primary">Schedule a Partner Call →</a>
+      <a href="https://cp-notice-decoder.vercel.app" target="_blank" class="btn-secondary">Try the Free CP Notice Decoder</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Problem -->
+  <div class="problem">
+    <div class="problem-inner">
+      <h2>Every CPA Has Clients Who Owe the IRS.<br><em>Most Don't Know What to Do Next.</em></h2>
+      <p>When a client gets a CP90, a tax lien, or a wage garnishment notice — that's outside your scope. But sending them away without a solution costs you their trust. There's a better way.</p>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-num">21M+</div>
+          <div class="stat-label">Americans owe back taxes to the IRS</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">$500+</div>
+          <div class="stat-label">Average resolution case value</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Client retention when you refer vs. dismiss</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- How it works -->
+  <section class="section fade-in">
+    <div class="section-eyebrow">The Partnership</div>
+    <h2>Simple. Seamless. Profitable.</h2>
+    <p class="section-sub">You stay focused on tax prep and accounting. We handle resolution. Your clients never feel abandoned.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>You Identify the Case</h3>
+        <p>A client comes to you with an IRS notice, a balance they can't pay, or a levy threat. You recognize it's beyond standard prep scope.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>You Make the Referral</h3>
+        <p>Send us the client's details through our referral form or a quick call. We take it from there — fully, professionally, and with regular updates back to you.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>You Get Compensated</h3>
+        <p>We pay a flat fee or revenue share depending on the case type. Your client relationship stays yours — we never poach, we only resolve.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <div class="services-bg">
+    <div class="services-inner fade-in">
+      <div class="section-eyebrow">What We Resolve</div>
+      <h2>Every IRS Problem. One Specialist.</h2>
+      <p class="section-sub">We handle the full spectrum of tax resolution — so you always have somewhere to send your most complex cases.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">📋</div>
+          <h3>Offer in Compromise</h3>
+          <p>Negotiate a settlement for less than the full amount owed when a client genuinely can't pay.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📅</div>
+          <h3>Installment Agreements</h3>
+          <p>Structure manageable payment plans that stop collection action and protect assets.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">✂️</div>
+          <h3>Penalty Abatement</h3>
+          <p>Remove or reduce IRS penalties through First-Time Abatement or Reasonable Cause arguments.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔓</div>
+          <h3>Levy Release</h3>
+          <p>Stop IRS levies on bank accounts, real estate, and other assets before or after they occur.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💼</div>
+          <h3>Wage Garnishment Release</h3>
+          <p>Halt wage garnishment quickly so your client can stabilize while we negotiate resolution.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">⏸️</div>
+          <h3>Currently Not Collectible</h3>
+          <p>Temporarily suspend IRS collection for clients in genuine financial hardship.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Why partner -->
+  <section class="section fade-in">
+    <div class="section-eyebrow">Why It Works</div>
+    <h2>Built for CPA Firms.</h2>
+    <p class="section-sub">We designed this partnership to protect what matters most — your client relationships and your reputation.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <h3>What You Keep</h3>
+        <ul>
+          <li><span class="check">✓</span> Full ownership of the client relationship</li>
+          <li><span class="check">✓</span> Regular case updates so you stay informed</li>
+          <li><span class="check">✓</span> Your reputation — we work in your name</li>
+          <li><span class="check">✓</span> The client returns to you after resolution</li>
+          <li><span class="check">✓</span> Referral compensation on every case</li>
+        </ul>
+      </div>
+      <div class="why-card gold">
+        <h3>What We Handle</h3>
+        <ul>
+          <li><span class="check">✓</span> All IRS communication and negotiation</li>
+          <li><span class="check">✓</span> CP notice responses and appeals</li>
+          <li><span class="check">✓</span> Collection Due Process hearings</li>
+          <li><span class="check">✓</span> Financial analysis and resolution strategy</li>
+          <li><span class="check">✓</span> Levy and lien resolution</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compensation -->
+  <div class="comp-section">
+    <div class="comp-inner fade-in">
+      <div class="section-eyebrow">Compensation</div>
+      <h2>You Refer. You Earn.</h2>
+      <p>We structure compensation based on what makes sense for the case — a flat fee for straightforward referrals, or a revenue share on larger resolution engagements.</p>
+      <div class="comp-grid">
+        <div class="comp-card">
+          <div class="comp-card-label">Option A</div>
+          <h3>Flat Fee Per Referral</h3>
+          <p>Ideal for straightforward cases. You send the client, we resolve it, you receive a fixed fee regardless of outcome timeline.</p>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-label">Option B</div>
+          <h3>Revenue Share</h3>
+          <p>For larger or more complex cases. A percentage of the resolution fee — aligning our incentives with your referral quality.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="cta-section fade-in">
+    <h2>Ready to Turn IRS Problems<br>Into <em>Opportunity?</em></h2>
+    <p>Schedule a free 20-minute call to discuss the partnership. No commitment — just a conversation about how we can work together.</p>
+    <a href="https://calendly.com/vidivicitaxrelief" target="_blank" class="btn-primary">Schedule a Partner Call →</a>
+    <div class="cta-note">Free · No obligation · Confidential</div>
+
+    <a href="https://cp-notice-decoder.vercel.app" target="_blank" class="tool-link">
+      <div class="tool-link-left">
+        <h4>Try Our Free CP Notice Decoder</h4>
+        <p>Decode any IRS CP notice in seconds — escalation risk, deadline, and client-ready explanation.</p>
+      </div>
+      <div class="tool-link-arrow">Try it free →</div>
+    </a>
+  </section>
+
+  <footer>
+    <span>© 2025 Vidivici Tax Relief</span>
+    <a href="https://vidivicitaxrelief.com">vidivicitaxrelief.com</a>
+    <span>This page is for licensed tax professionals only.</span>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
